@@ -1,4 +1,4 @@
-package com.bhlangonijr;
+package com.bhlangonijr.drools;
 
 import org.kie.api.KieServices;
 import org.kie.api.builder.*;

@@ -7,7 +7,7 @@
     </appender>
     <logger name="net.layered.postmaster" level="DEBUG"/>
 
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="CONSOLE"/>
     </root>
 </configuration>

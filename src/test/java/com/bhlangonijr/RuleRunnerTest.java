@@ -1,6 +1,7 @@
 package com.bhlangonijr;
 
 import com.bhlangonijr.domain.Message;
+import com.bhlangonijr.drools.RuleRunner;
 import org.junit.Test;
 
 import java.util.Arrays;
