@@ -5,12 +5,14 @@ import com.bhlangonijr.drools.RuleRunner;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 
 @Service
 public class RuleService {
 
-    final Map<String, Rule> ruleMap = new HashMap<>();
+    //in memory database for rules
+    final Map<String, Rule> ruleMap = new ConcurrentHashMap<>();
     RuleRunner runner;
     long runnerLastHash;
 

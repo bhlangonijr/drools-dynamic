@@ -1,6 +1,7 @@
 package com.bhlangonijr.domain;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Message implements Serializable {
 
@@ -49,5 +50,20 @@ public class Message implements Serializable {
         sb.append(", text='").append(text).append('\'');
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Message message = (Message) o;
+        return Objects.equals(from, message.from) &&
+                Objects.equals(to, message.to) &&
+                Objects.equals(text, message.text);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(from, to, text);
     }
 }

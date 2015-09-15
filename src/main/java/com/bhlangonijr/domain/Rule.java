@@ -45,4 +45,13 @@ public class Rule implements Serializable {
     public int hashCode() {
         return Objects.hash(id, script);
     }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Rule{");
+        sb.append("id='").append(id).append('\'');
+        sb.append(", script='").append(script).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

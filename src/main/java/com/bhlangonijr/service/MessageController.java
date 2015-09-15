@@ -32,6 +32,7 @@ public class MessageController {
             Response response = messageService.send(message);
             return new ResponseEntity<>(response, HttpStatus.OK);
         } catch (Exception e) {
+            log.error("Error sending message", e);
             return new ResponseEntity<>(new Response(e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
@@ -43,6 +44,7 @@ public class MessageController {
         try {
             return new ResponseEntity<>(messageService.getAllMessages(), HttpStatus.OK);
         } catch (Exception e) {
+            log.error("Error retrieving message", e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -52,9 +54,11 @@ public class MessageController {
     @ResponseBody
     public ResponseEntity<String> saveRule(@RequestBody Rule rule) {
         try {
+            log.info("saving rule: " + rule);
             ruleService.upInsertRule(rule);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
+            log.error("Error saving rule", e);
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
@@ -66,6 +70,7 @@ public class MessageController {
             ruleService.deleteRule(id);
             return new ResponseEntity<>(HttpStatus.OK);
         } catch (Exception e) {
+            log.error("Error deleting rule", e);
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
