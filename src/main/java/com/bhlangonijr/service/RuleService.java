@@ -24,8 +24,8 @@ public class RuleService {
         ruleMap.remove(id);
     }
 
-    public Optional<Rule> getRule(String id) {
-        return Optional.ofNullable(ruleMap.get(id));
+    public Rule getRule(String id) {
+        return ruleMap.get(id);
     }
 
     public List<Rule> getAllRules() {

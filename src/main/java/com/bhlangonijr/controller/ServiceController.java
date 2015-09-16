@@ -1,8 +1,10 @@
-package com.bhlangonijr.service;
+package com.bhlangonijr.controller;
 
 import com.bhlangonijr.domain.Message;
 import com.bhlangonijr.domain.Response;
 import com.bhlangonijr.domain.Rule;
+import com.bhlangonijr.service.MessageService;
+import com.bhlangonijr.service.RuleService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +16,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class MessageController {
+public class ServiceController {
 
-    private static final Logger log = LoggerFactory.getLogger(MessageController.class);
+    private static final Logger log = LoggerFactory.getLogger(ServiceController.class);
 
     @Autowired
     private RuleService ruleService;
@@ -24,7 +26,7 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-    @RequestMapping(value = "/message/send", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/message/send.json", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseEntity<Response> sendMessage(@RequestBody Message message) {
         log.info("incoming message: " + message);
@@ -38,7 +40,7 @@ public class MessageController {
 
     }
 
-    @RequestMapping(value = "/message/all", method = RequestMethod.GET)
+    @RequestMapping(value = "/message/all.json", method = RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<List<Message>> getAllMessages() {
         try {
@@ -50,7 +52,7 @@ public class MessageController {
     }
 
 
-    @RequestMapping(value = "/rule/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/rule/save.json", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<String> saveRule(@RequestBody Rule rule) {
         try {
@@ -63,7 +65,7 @@ public class MessageController {
         }
     }
 
-    @RequestMapping(value = "/rule/delete/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/rule/delete/{id}.json", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<String> deleteRule(@PathVariable("id") String id) {
         try {
@@ -74,11 +76,5 @@ public class MessageController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-
-
-
-
-
 
 }

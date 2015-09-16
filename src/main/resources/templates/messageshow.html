@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Drools Dynamic App</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+
+    <h2>Message Details</h2>
+        <div>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Id:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${message.id}">Id</p></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">To:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${message.to}">To</p></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">From:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${message.from}">From</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Text:</label>
+                    <div class="col-sm-10">
+                        <p class="form-control-static" th:text="${message.text}">Text</p>
+                    </div>
+                </div>
+            </form>
+    </div>
+</div>
+
+</body>
+</html>

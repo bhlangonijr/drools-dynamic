@@ -114,17 +114,23 @@ dependencies {
     compile("org.springframework.integration:spring-integration-jmx:$springIntegrationVersion")
     compile("org.springframework.integration:spring-integration-amqp:$springIntegrationVersion")
     compile("org.springframework:spring-webmvc:$springVersion")
-    //compile("org.springframework.security:spring-security-config:4.0.2.RELEASE")
-    //compile("org.springframework.security:spring-security-web:4.0.2.RELEASE")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf:$springBootVersion")
+
+    compile("org.springframework.security:spring-security-config:4.0.2.RELEASE")
+    compile("org.springframework.security:spring-security-web:4.0.2.RELEASE")
 
     compile("io.dropwizard.metrics:metrics-core:$metricsVersion")
     compile("io.dropwizard.metrics:metrics-healthchecks:$metricsVersion")
     compile("io.dropwizard.metrics:metrics-graphite:$metricsVersion")
 
-    compile "com.fasterxml.jackson:jackson-parent:2.5"
-    compile "com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.5.2"
-    compile "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.5.2"
-    compile "javax.servlet:javax.servlet-api:3.1.0"
+    compile("com.fasterxml.jackson:jackson-parent:2.5")
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.5.2")
+    compile("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.5.2")
+    compile("javax.servlet:javax.servlet-api:3.1.0")
+
+    compile("org.webjars:bootstrap:3.3.4")
+    compile("org.webjars:jquery:2.1.4")
+    compile("org.thymeleaf:thymeleaf-spring3:2.0.17")
 
     compile("org.springframework.boot:spring-boot-starter")
     compile("org.springframework.boot:spring-boot-starter-tomcat")

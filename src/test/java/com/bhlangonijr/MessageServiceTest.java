@@ -47,17 +47,17 @@ public class MessageServiceTest {
                 "      System.out.println( \"rule 1 fired!\" );\n" +
                 "end");
         ResponseEntity<String> response1 = new TestRestTemplate().postForEntity(
-                "http://localhost:" + port + "/rule/save", rule, String.class);
+                "http://localhost:" + port + "/rule/save.json", rule, String.class);
 
         assertEquals(response1.getStatusCode(), HttpStatus.OK);
         System.out.println("Response1: " + response1.getBody());
 
         // 2) Send a message sourced by ´@earth´
-        Message message = new Message("me@earth", "you@earth", "hello there");
+        Message message = new Message("123", "me@earth", "you@earth", "hello there");
 
         HttpEntity<Message> request3 = new HttpEntity<>(message, headers);
         ResponseEntity<Response>  response3 = new TestRestTemplate().postForEntity(
-                "http://localhost:" + port + "/message/send", request3, Response.class);
+                "http://localhost:" + port + "/message/send.json", request3, Response.class);
 
         assertTrue(response3.getBody().getSuccess());
         assertEquals("hello there - has been processed", response3.getBody().getText());
@@ -65,7 +65,7 @@ public class MessageServiceTest {
 
         // 3) now check if the message that we just sent is there
         ResponseEntity<Message[]> response4 = new TestRestTemplate().getForEntity(
-                "http://localhost:" + port + "/message/all", Message[].class);
+                "http://localhost:" + port + "/message/all.json", Message[].class);
 
         assertEquals(1, response4.getBody().length);
         assertEquals(message, response4.getBody()[0]);

@@ -26,7 +26,7 @@ public class RuleRunnerTest {
         RuleRunner runner = RuleRunner.createRuleRunner(Arrays.asList(rule));
         long init = System.currentTimeMillis();
         for (int i = 1; i <= 100; i++) {
-            Message message = new Message("me"+i+"@earth", "you@earth", "hello there " + i);
+            Message message = new Message("123", "me"+i+"@earth", "you@earth", "hello there " + i);
             runner.runRules(Arrays.asList(message));
             assertEquals("changed", message.getText());
         }

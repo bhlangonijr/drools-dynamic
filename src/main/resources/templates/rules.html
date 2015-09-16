@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+
+    <title>Drools Dynamic App</title>
+
+    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+</head>
+<body>
+<div class="container">
+    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <div th:if="${not #lists.isEmpty(rules)}">
+        <h2>Rules</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>Script</th>
+            </tr>
+            <tr th:each="rule : ${rules}">
+                <td th:text="${rule.id}"><a href="/rule/${rule.id}">Id</a></td>
+                <td th:text="${rule.script}">Script</td>
+                <td><a th:href="${ '/rule/' + rule.id}">View</a></td>
+                <td><a th:href="${'/rule/edit/' + rule.id}">Edit</a></td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+</body>
+</html>
