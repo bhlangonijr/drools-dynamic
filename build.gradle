@@ -52,9 +52,11 @@ compileJava.enabled = true
 
 mainClassName = "com.bhlangonijr.Application"
 
+/*
 springBoot {
     classifier = 'exec'
 }
+*/
 
 jar {
     baseName = "drools-dynamic"
