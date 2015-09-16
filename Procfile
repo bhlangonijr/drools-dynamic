@@ -1,0 +1,1 @@
+web: java -Dserver.port=$PORT -jar build/libs/drools-dynamic-1.0-SNAPSHOT-exec.jar
